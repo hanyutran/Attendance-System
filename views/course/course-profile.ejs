@@ -1,0 +1,103 @@
+<% layout('layout2') %>
+
+
+<div id="wrapper">
+
+    <% include ../partials/sidebar %>
+
+    <div id="page-content-wrapper">
+        <% include ../partials/navbar %>
+        <div class="container-fluid main_body">
+			<div class="ul_links">
+	            <ul>
+	                <li><a href="/home">Home</a></li> |
+	                <li><a href="/courses">Course</a></li> |
+	                <li><a href="#">Course Profile</a></li>
+	            </ul>
+	        </div>
+
+            <div class="bodyDiv">
+				<h4 style="">Course Profile</h4>
+
+	            <div class="row mainDiv">
+					<div class="innerDiv">
+						<div class="col-md-3" style="margin-bottom:30px;">
+							<img src="/uploads/<%= data.image %>" width="270px" height="270px" alt="">
+							<h3><%= data.name %></h3>
+							<i class="fa fa-user-circle-o "> <%= data.prof %>, <%= data.credit %></i><br>
+							<i class="fa fa-map-marker "> <%= data.room %></i><br>	           
+							
+							
+						</div>
+
+						<div class="col-md-9 colDiv">
+							 <table class="table table-bordered">
+                                <thead>
+                                  <tr>
+                                    <th>Student Name</th>
+                                    <th>Student ID</th>
+                                    <th>Time</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                    <% if( data.time == "AM" ) { %>
+                                        <% for(var i=0; i < room.length; i++) { %>
+                                            <% if( room[i].hour < 12 ) { %>
+                                                <tr>
+                                                    <% for(var j=0; j< student.length; j++) { %>
+                                                
+                                                        <% if(room[i].phoneid == student[j].uuid) { %>
+                                                    
+                                                            <td><%= student[j].username %></td>
+                                                            <td><%= student[j].id %></td>
+                                            
+                                                        <% } %>
+                                            
+                                                    <% } %>     
+                                            
+                                                    <td><%= room[i].date %></td>
+                                                </tr>                                    
+                                    
+                                            <% } %>
+                                    
+                                         <% } %>
+                                    <% } %>
+                                    
+                                    <% if( data.time == "PM" ) { %>
+                                        <% for(var i=0; i < room.length; i++) { %>
+                                            <% if( room[i].hour > 12 ) { %>
+                                                <tr>
+                                                    <% for(var j=0; j< student.length; j++) { %>
+                                                
+                                                        <% if(room[i].phoneid == student[j].uuid) { %>
+                                                    
+                                                            <td><%= student[j].username %></td>
+                                                            <td><%= student[j].id %></td>
+                                            
+                                                        <% } %>
+                                            
+                                                    <% } %>     
+                                            
+                                                    <td><%= room[i].date %></td>
+                                                </tr>                                    
+                                    
+                                            <% } %>
+                                    
+                                         <% } %>
+                                    <% } %>           
+                                    
+                                </tbody>
+                                </table>				
+
+
+							</div>
+						</div>
+					</div>
+
+	            </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
