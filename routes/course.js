@@ -81,7 +81,6 @@ module.exports = (app) => {
         });
     });
 
-
     app.get('/course/search', (req, res) => {
         res.render('course/search', {title: 'Find a Course', user:req.user});
     });

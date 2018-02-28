@@ -25,9 +25,9 @@
 							<img src="/uploads/<%= data.image %>" width="270px" height="270px" alt="">
 							<h3><%= data.name %></h3>
 							<i class="fa fa-user-circle-o "> <%= data.prof %>, <%= data.credit %></i><br>
-							<i class="fa fa-map-marker "> <%= data.room %></i><br>	           
-							
-							
+							<i class="fa fa-map-marker "> <%= data.room %></i><br>
+
+
 						</div>
 
 						<div class="col-md-9 colDiv">
@@ -45,50 +45,49 @@
                                             <% if( room[i].hour < 12 ) { %>
                                                 <tr>
                                                     <% for(var j=0; j< student.length; j++) { %>
-                                                
+
                                                         <% if(room[i].phoneid == student[j].uuid) { %>
-                                                    
+
                                                             <td><%= student[j].username %></td>
                                                             <td><%= student[j].id %></td>
-                                            
+
                                                         <% } %>
-                                            
-                                                    <% } %>     
-                                            
+
+                                                    <% } %>
+
                                                     <td><%= room[i].date %></td>
-                                                </tr>                                    
-                                    
+                                                </tr>
+
                                             <% } %>
-                                    
+
                                          <% } %>
                                     <% } %>
-                                    
+
                                     <% if( data.time == "PM" ) { %>
                                         <% for(var i=0; i < room.length; i++) { %>
                                             <% if( room[i].hour > 12 ) { %>
                                                 <tr>
                                                     <% for(var j=0; j< student.length; j++) { %>
-                                                
+
                                                         <% if(room[i].phoneid == student[j].uuid) { %>
-                                                    
+
                                                             <td><%= student[j].username %></td>
                                                             <td><%= student[j].id %></td>
-                                            
-                                                        <% } %>
-                                            
-                                                    <% } %>     
-                                            
-                                                    <td><%= room[i].date %></td>
-                                                </tr>                                    
-                                    
-                                            <% } %>
-                                    
-                                         <% } %>
-                                    <% } %>           
-                                    
-                                </tbody>
-                                </table>				
 
+                                                        <% } %>
+
+                                                    <% } %>
+
+                                                    <td><%= room[i].date %></td>
+                                                </tr>
+
+                                            <% } %>
+
+                                         <% } %>
+                                    <% } %>
+
+                                </tbody>
+                                </table>			
 
 							</div>
 						</div>
@@ -100,4 +99,3 @@
     </div>
 
 </div>
-
